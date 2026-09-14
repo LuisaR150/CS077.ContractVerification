@@ -37,7 +37,7 @@
                                Height="220" Stretch="UniformToFill"
                                AutomationProperties.Name="Reference mission artwork. Replace with your runner illustration." />
                         <TextBlock Margin="0,8,0,18" Foreground="#B9CBD1" FontSize="12" Text="Reference art — replace with your character or mission illustration." />
-                        <TextBlock x:Name="RunnerName" Foreground="#F1AC6C" FontSize="24" Text="Your runner's name" />
+                        <TextBlock x:Name="RunnerName" Foreground="#F1AC6C" FontSize="24" Text="Jane" />
                         <TextBlock x:Name="RunnerRole" Margin="0,6,0,18" FontSize="14" Text="Your runner's role, strength, and limitation." />
                         <TextBlock Foreground="#61DDF4" Text="DISCOVERY" />
                         <TextBlock x:Name="DiscoveryText" Margin="0,6,0,18" FontSize="15" Text="Write what your runner found and why someone needs this decision." />
@@ -64,6 +64,7 @@
                             <TextBlock Margin="0,18,0,0" Foreground="#B9CBD1" FontSize="12" Text="CLEAR means the record passed these checks. It does not establish Orra Quill's guilt." />
                         </StackPanel>
                     </Border>
+                    <Button x:Name="Start_btn" Content="Start" Height="89" Width="499" Click="StartButton_click" FontSize="48"/>
                 </StackPanel>
             </Grid>
         </Grid>

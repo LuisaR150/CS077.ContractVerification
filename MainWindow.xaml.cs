@@ -31,23 +31,40 @@ public partial class MainWindow : Window
         // 1. A conflicting timestamp returns HOLD.
         // 2. Missing identity OR source verification returns REVIEW.
         // 3. No conflict, confirmed identity, and verified source returns CLEAR.
-        return "REVIEW";
+        if (timestampConflict == false)
+        {
+            return "HOLD";
+        }
+        else if (identityConfirmed == false)
+        {
+            return "REVIEW";
+        }
+        else if (sourceVerified == false)
+        {
+            return "REVIEW";
+        }
+        else return "CLEAR";
+
+            private static string ExplainVerdict(string verdict)
+            {
+                // Customize these consequences for your runner. This function returns text.
+                if (verdict == "HOLD")
+                {
+                    return "Your runner holds the contract and investigates the conflicting timestamps.";
+                }
+                else if (verdict == "CLEAR")
+                {
+                    return "Your runner sends the checked record to Captain Vale. The checks agree; they do not establish guilt.";
+                }
+                else
+                {
+                    return "Your runner asks for another verified source before moving the contract.";
+                }
+            }
+
+    private void StartButton_click(object sender, RoutedEventArgs e)
+    {
+
     }
 
-    private static string ExplainVerdict(string verdict)
-    {
-        // Customize these consequences for your runner. This function returns text.
-        if (verdict == "HOLD")
-        {
-            return "Your runner holds the contract and investigates the conflicting timestamps.";
-        }
-        else if (verdict == "CLEAR")
-        {
-            return "Your runner sends the checked record to Captain Vale. The checks agree; they do not establish guilt.";
-        }
-        else
-        {
-            return "Your runner asks for another verified source before moving the contract.";
-        }
-    }
 }
